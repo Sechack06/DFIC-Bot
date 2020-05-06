@@ -1,6 +1,6 @@
 const Discord = require("discord.js")
 const client = new Discord.Client()
-const mention = /<@(!|&)\d+>/g
+const mention = /<@\d+>/g
 
 let count = []
 
@@ -134,4 +134,4 @@ setInterval(() => {count = []}, 10000)
 
 const token = process.env.token
 
-client.login(token)
+client.login("NzA2NDMxODU1MTA0MzYwNDY4.XrDTiw.KHxEVaO0vb7Y2Xwf8ZeHm2R5U4w")
