@@ -134,4 +134,4 @@ setInterval(() => {count = []}, 10000)
 
 const token = process.env.token
 
-client.login("NzA2NDMxODU1MTA0MzYwNDY4.XrDTiw.KHxEVaO0vb7Y2Xwf8ZeHm2R5U4w")
+client.login(token)
