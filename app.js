@@ -1,6 +1,6 @@
 const Discord = require("discord.js")
 const client = new Discord.Client()
-const mention = /<@\d+>/g
+const mention = /<@(!|&|\d)\d+>/g
 
 let count = []
 
