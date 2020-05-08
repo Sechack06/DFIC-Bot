@@ -68,28 +68,28 @@ client.on('message', (message) => {
     let mentiontext = message.content.match(mention)
     let mentioncount = 0
     let user = message.author
-
+    let args = message.content.substring(PREFIX.length).split(" ")
+    switch (args[0].toLowerCase()){
+        case "unmute":
+            let unmutemember = args[1].mention.members
+            if(unmutemember){
+                if(member.manageable){
+                    message.channel.send("당신은 서버의 관리자가 아니므로 뮤트를 해제할 수 없습니다.")
+                }else{
+                    unmute(server, unmutemember)
+                    member.send("당신은 관리자에 의해 DFIC에서 정상적으로 뮤트해제 되었습니다. 이제 정상적으로 활동하실 수 있습니다.")
+                }
+            }else{
+                if(member.manageable){
+                    message.channel.send("당신은 서버의 관리자가 아니므로 뮤트를 해제할 수 없습니다.")
+                }message.channel.send("뮤트 해제할 사용자를 멘션하여 주세요.")
+            }
+        break
+    }
         if(message.author.id != "706431855104360468"){
         server.members.cache.forEach((member) =>{
             if(member.id === user.id){
-                let args = message.content.substring(PREFIX.length).split(" ")
-                switch (args[0].toLowerCase()){
-                    case "unmute":
-                        let unmuteuser = message.content.match(mention)
-                        if(unmuteuser){
-                            if(member.manageable){
-                                message.channel.send("당신은 서버의 관리자가 아니므로 뮤트를 해제할 수 없습니다.")
-                            }else{
-                                unmute(server, member)
-                                member.send("당신은 관리자에 의해 DFIC에서 정상적으로 뮤트해제 되었습니다. 이제 정상적으로 활동하실 수 있습니다.")
-                            }
-                        }else{
-                            if(member.manageable){
-                                message.channel.send("당신은 서버의 관리자가 아니므로 뮤트를 해제할 수 없습니다.")
-                            }message.channel.send("뮤트 해제할 사용자를 멘션하여 주세요.")
-                        }
-                    break
-                }if(mentiontext === null){
+                if(mentiontext === null){
                 }else{
                     while(mentiontext[mentioncount]){
                         mentioncount++
