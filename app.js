@@ -81,7 +81,7 @@ client.on('message', (message) => {
                                 message.channel.send("당신은 서버의 관리자가 아니므로 뮤트를 해제할 수 없습니다.")
                             }else{
                                 unmute(server, member)
-                                message.channel.send("당신은 관리자에 의해 DFIC에서 정상적으로 뮤트해제 되었습니다. 이제 정상적으로 활동하실 수 있습니다.")
+                                member.send("당신은 관리자에 의해 DFIC에서 정상적으로 뮤트해제 되었습니다. 이제 정상적으로 활동하실 수 있습니다.")
                             }
                         }else{
                             if(member.manageable){
