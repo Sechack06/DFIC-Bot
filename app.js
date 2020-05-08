@@ -82,7 +82,9 @@ client.on('message', (message) => {
             }else{
                 if(member.manageable){
                     message.channel.send("당신은 서버의 관리자가 아니므로 뮤트를 해제할 수 없습니다.")
-                }message.channel.send("뮤트 해제할 사용자를 멘션하여 주세요.")
+                }else{
+                    message.channel.send("뮤트 해제할 사용자를 멘션하여 주세요.")
+                }
             }
         break
     }
