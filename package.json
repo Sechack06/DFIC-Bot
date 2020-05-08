@@ -1,10 +1,11 @@
 {
   "name": "dfic-bot",
   "version": "1.0.0",
-  "description": "",
+  "description": "- �� ���ڵ� ���� DFIC���ڵ� ������ ����ȭ �Ǿ�������\r  - Ÿ �������� ���� ���������� �������� ���� �� �ֽ��ϴ�.",
   "main": "app.js",
   "dependencies": {
-    "discord.js": "^12.2.0"
+    "discord.js": "^12.2.0",
+    "firebase": "^7.14.3"
   },
   "devDependencies": {},
   "scripts": {
@@ -12,5 +13,13 @@
     "start": "node app.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/compack06/DFIC-Bot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/compack06/DFIC-Bot/issues"
+  },
+  "homepage": "https://github.com/compack06/DFIC-Bot#readme"
 }
