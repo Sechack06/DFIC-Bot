@@ -68,30 +68,36 @@ client.on('message', (message) => {
     let mentiontext = message.content.match(mention)
     let mentioncount = 0
     let user = message.author
-    let args = message.content.substring(PREFIX.length).split(" ")
-    switch (args[0].toLowerCase()){
-        case "unmute":
-            let unmutemember = args[1].mention.members
-            if(unmutemember){
-                if(member.manageable){
-                    message.channel.send("당신은 서버의 관리자가 아니므로 뮤트를 해제할 수 없습니다.")
-                }else{
-                    unmute(server, unmutemember)
-                    member.send("당신은 관리자에 의해 DFIC에서 정상적으로 뮤트해제 되었습니다. 이제 정상적으로 활동하실 수 있습니다.")
-                }
-            }else{
-                if(member.manageable){
-                    message.channel.send("당신은 서버의 관리자가 아니므로 뮤트를 해제할 수 없습니다.")
-                }else{
-                    message.channel.send("뮤트 해제할 사용자를 멘션하여 주세요.")
-                }
-            }
-        break
-    }
         if(message.author.id != "706431855104360468"){
         server.members.cache.forEach((member) =>{
             if(member.id === user.id){
-                if(mentiontext === null){
+                let args = message.content.substring(PREFIX.length).split(" ")
+                switch (args[0].toLowerCase()){
+                    case "unmute":
+                        let unmutemember = message.mentions.users.array()
+                        if(unmutemember[1]){
+                            message.channel.send("뮤트를 해제할 멤버 1명만 멘션하여 주세요.")
+                        }else if(unmutemember){
+                            if(member.manageable){
+                                message.channel.send("당신은 서버의 관리자가 아니므로 뮤트를 해제할 수 없습니다.")
+                            }else{
+                                server.members.cache.forEach((member) => {
+                                    if(unmutemember[0].id === member.id){
+                                        unmute(server, member)
+                                        member.send("당신은 관리자에 의해 DFIC에서 정상적으로 뮤트해제 되었습니다. 이제 정상적으로 활동하실 수 있습니다.")
+                                        message.channel.send("<@" + unmutemember[0].id + "> 님의 뮤트가 풀렸습니다.")
+                                    }
+                                })
+                            }
+                        }else{
+                            if(member.manageable){
+                                message.channel.send("당신은 서버의 관리자가 아니므로 뮤트를 해제할 수 없습니다.")
+                            }else{
+                                message.channel.send("뮤트 해제할 사용자를 멘션하여 주세요.")
+                            }
+                        }
+                    break
+                }if(mentiontext === null){
                 }else{
                     while(mentiontext[mentioncount]){
                         mentioncount++
