@@ -98,18 +98,18 @@ client.on('message', (message) => {
                         }
                         break
                     case "mute":
-                        let unmutemember = message.mentions.users.array()
-                        if(unmutemember[1]){
+                        let mutemember = message.mentions.users.array()
+                        if(mutemember[1]){
                             message.channel.send("뮤트할 멤버 1명만 멘션하여 주세요.")
-                        }else if(unmutemember){
+                        }else if(mutemember){
                             if(member.manageable){
                                 message.channel.send("당신은 서버의 관리자가 아니므로 멤버를 뮤트할 수 없습니다.")
                             }else{
                                 server.members.cache.forEach((member) => {
-                                    if(unmutemember[0].id === member.id){
+                                    if(mutemember[0].id === member.id){
                                         givemute(server, member)
                                         member.send("당신은 관리자에 의해 DFIC에서 뮤트가 되었습니다.")
-                                        message.channel.send("<@" + unmutemember[0].id + "> 님이 관리자에 의해 뮤트가 되었습니다.")
+                                        message.channel.send("<@" + mutemember[0].id + "> 님이 관리자에 의해 뮤트가 되었습니다.")
                                     }
                                 })
                             }
