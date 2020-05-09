@@ -132,6 +132,7 @@ client.on('message', (message) => {
                         }else{
                             givemute(server, member)
                             member.send("당신은 DFIC에서 멘션테러를 했으므로 mute가 되었습니다. 이의 있으시면 관리자에게 문의하세요.")
+                            message.replay("님의 멘션테러가 감지되어 뮤트가 되었습니다.")
                         }
                     }
                 }
@@ -155,6 +156,7 @@ client.on('message', (message) => {
                                 }else{
                                     givemute(server, member)
                                     member.send("당신은 DFIC에서 도배를 했으므로 mute가 되었습니다. 이의 있으시면 관리자에게 문의하세요.")
+                                    message.replay("님의 도배가 감지되어 뮤트가 되었습니다.")
                                 }
                             }if(count[i].samemsgcount >= 5){
                                 if(!member.manageable){
@@ -162,6 +164,7 @@ client.on('message', (message) => {
                                 }else{
                                     givemute(server, member)
                                     member.send("당신은 DFIC에서 도배를 했으므로 mute가 되었습니다. 이의 있으시면 관리자에게 문의하세요.")
+                                    message.replay("님의 도배가 감지되어 뮤트가 되었습니다.")
                                 }
                             }else if(message.content.length >= 500){
                                 count[i].lagmsgcount++
@@ -171,6 +174,7 @@ client.on('message', (message) => {
                                 }else{
                                     givemute(server, member)
                                     member.send("당신은 DFIC에서 도배를 했으므로 mute가 되었습니다. 이의 있으시면 관리자에게 문의하세요.")
+                                    message.replay("님의 도배가 감지되어 뮤트가 되었습니다.")
                                 }
                             }
                         }else{
@@ -180,6 +184,7 @@ client.on('message', (message) => {
                                 }else{
                                     givemute(server, member)
                                     member.send("당신은 DFIC에서 도배를 했으므로 mute가 되었습니다. 이의 있으시면 관리자에게 문의하세요.")
+                                    message.replay("님의 도배가 감지되어 뮤트가 되었습니다.")
                                 }
                             }else if(message.content.length >= 500){
                                 count[i].lagmsgcount++
@@ -192,6 +197,7 @@ client.on('message', (message) => {
                                 }else{
                                     givemute(server, member)
                                     member.send("당신은 DFIC에서 도배를 했으므로 mute가 되었습니다. 이의 있으시면 관리자에게 문의하세요.")
+                                    message.replay("님의 도배가 감지되어 뮤트가 되었습니다.")
                                 }
                             }else{
                                 count[i].content = message.content
