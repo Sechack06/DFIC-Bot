@@ -2,7 +2,7 @@ const Discord = require("discord.js")
 const firebase = require("firebase")
 const client = new Discord.Client()
 const mention = /<@(!|&|\d)\d+>/g
-const PREFIX = "!"
+const PREFIX = "$"
 
 let count = []
 
