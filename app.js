@@ -2,7 +2,7 @@ const Discord = require("discord.js")
 const firebase = require("firebase")
 const client = new Discord.Client()
 const mention = /<@(!|&|\d)\d+>/g
-const invitelink1 = /([\sa-zA-Z가-힣1-9]{2,})(https:\/\/)?discord.gg\/[a-zA-Z1-9]+/
+const invitelink1 = /([\sa-zA-Z가-힣1-9ㄱ-ㅎ]{2,})(https:\/\/)?discord.gg\/[a-zA-Z1-9]+/
 const invitelink2 = /^(https:\/\/)?discord.gg\/[a-zA-Z1-9]+/
 const PREFIX = "$"
 
