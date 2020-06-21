@@ -2,6 +2,8 @@ const Discord = require("discord.js")
 const firebase = require("firebase")
 const client = new Discord.Client()
 const mention = /<@(!|&|\d)\d+>/g
+const invitelink1 = /([\sa-zA-Z가-힣1-9]{2,})(https:\/\/)?discord.gg\/[a-zA-Z1-9]+/
+const invitelink2 = /^(https:\/\/)?discord.gg\/[a-zA-Z1-9]+/
 const PREFIX = "$"
 
 let count = []
@@ -63,12 +65,20 @@ client.on('message', (message) => {
     }if(message.channel.name === "반성의-방"){
         return
     }
-
     let server = message.guild
     let mentiontext = message.content.match(mention)
     let mentioncount = 0
     let user = message.author
-        if(message.author.id != "706431855104360468"){
+    if(message.author.id != "706431855104360468"){
+        if(message.content.match(invitelink1)){
+            message.delete()
+            message.reply("메시지에서 서버 초대링크가 감지되었습니다.")
+            user.send("DFIC는 타 서버 초대가 금지된 서버입니다. \n따라서 회원님의 초대링크가 포함된 메시지는 삭제되었습니다.")
+        }else if(message.content.match(invitelink2)){
+            message.delete()
+            message.reply("메시지에서 서버 초대링크가 감지되었습니다.")
+            user.send("DFIC는 타 서버 초대가 금지된 서버입니다. \n따라서 회원님의 초대링크가 포함된 메시지는 삭제되었습니다.")
+        }
         server.members.cache.forEach((member) =>{
             if(member.id === user.id){
                 let args = message.content.substring(PREFIX.length).split(" ")
