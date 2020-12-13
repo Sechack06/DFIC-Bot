@@ -52,7 +52,7 @@ client.on("guildMemberAdd", (member) => {
     muteuser.get().then((doc) => {
         if (doc.exists) {
             member.ban()
-            member.send("당신은 DFIC규칙 13항(뮤트가 되었을시 서버를 나갔다 들어옴으로써 뮤트를 풀면 바로 밴(차단)이다.)를 어겼으므로 DFIC에서 밴(차단) 처리 되었습니다. 이의 있으시면 <@473327037327736834> 여기로 DM남겨주세요.")
+            member.send("당신은 DFIC규칙 13항(뮤트가 되었을시 서버를 나갔다 들어옴으로써 뮤트를 풀면 바로 밴(차단)이다.)를 어겼으므로 DFIC에서 밴(차단) 처리 되었습니다.")
             db.collection("mutelist").doc(member.id).delete()
         }
     })
