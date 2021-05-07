@@ -69,7 +69,7 @@ client.on('message', (message) => {
     let mentiontext = message.content.match(mention)
     let mentioncount = 0
     let user = message.author
-    if(message.author.id != "706431855104360468"){
+    if((message.author.id != "706431855104360468") || (message.author.id != "694131960125325374")){
         if(message.content.match(invitelink1)){
             message.delete()
             message.reply("메시지에서 서버 초대링크가 감지되었습니다.")
